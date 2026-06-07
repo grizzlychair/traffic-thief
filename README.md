@@ -66,3 +66,6 @@ USB/
 - NewGRFs downloaded in-game via the content downloader will land in the correct location automatically.
 - The script targets `x86_64` (64-bit) Linux only.
 - If running on a machine with a significantly older glibc, the generic binary may fail to launch. In that case, install OpenTTD from that machine's package manager and copy your saves across manually.
+
+---
+Generated with the assistance of Anthropic's Claude Sonnet 4.6 (June 2026).
