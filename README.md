@@ -7,7 +7,7 @@ A shell script for Arch-based Linux that installs a portable, self-contained [Op
 - Linux (tested on CachyOS / Arch-based)
 - Any POSIX-compatible shell (bash, zsh, fish, etc.)
 - `curl`, `tar`, and `jq` available on the host machine (the script will attempt to install `jq` via `pacman` if it's missing, Arch-based distros only)
-- Konsole (for automatic terminal launch when run from a desktop environment; other terminal emulators will require running the script manually from a terminal)
+- Konsole (the script will open it automatically if not already running in a terminal; other terminal emulators will require running the script manually)
 - USB drive mounted and accessible under `/run/media/<username>/` (the script detects your username automatically and prompts for the drive label)
 
 ## What the script does
@@ -30,10 +30,10 @@ A shell script for Arch-based Linux that installs a portable, self-contained [Op
 
 ### First-time setup
 
-Make sure your USB drive is mounted, then double-click `OpenTTD-USB.sh` from the desktop or run it from a terminal:
+Make sure your USB drive is mounted, then run the script:
 
 ```sh
-~/Desktop/OpenTTD-USB.sh
+./OpenTTD-USB.sh
 ```
 
 The script will open a Konsole window automatically if not already running in a terminal. It will prompt for your USB drive label (press Enter to accept the default `USB`), then proceed with the install.
