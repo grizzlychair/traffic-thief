@@ -1,7 +1,13 @@
 #!/bin/sh
 if [ ! -t 0 ]; then
-    konsole -e sh "$0"
-    exit
+    for term in konsole gnome-terminal xfce4-terminal mate-terminal lxterminal alacritty kitty xterm; do
+        if command -v $term > /dev/null 2>&1; then
+            $term -e sh "$0"
+            exit
+        fi
+    done
+    echo "No supported terminal emulator found. Please run this script from a terminal."
+    exit 1
 fi
 if ! command -v jq > /dev/null 2>&1; then
     echo "jq not found, installing..."
