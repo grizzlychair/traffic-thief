@@ -20,10 +20,7 @@ A shell script for Arch-based Linux that installs a portable, self-contained [Op
 6. Creates an `openttd/` directory at the root of the USB drive
 7. Downloads the correct Linux generic binary for that version from `cdn.openttd.org`
 8. Extracts and cleans up the archive
-9. Creates the following directories inside `openttd/`:
-   - `save/` - savegames (OpenTTD checks here first when it exists next to the binary)
-   - `newgrf/` - NewGRF mods
-   - `data/config/` - configuration file
+9. Creates `data/config/` on the drive for the OpenTTD config file
 10. Generates a `launch-OpenTTD.sh` wrapper script that points OpenTTD at the portable config on the drive
 
 ## Usage
@@ -52,24 +49,22 @@ Or navigate to the `openttd/` folder on the drive and run:
 
 ## Updating OpenTTD
 
-Just re-run the script. It queries the GitHub Releases API at runtime and always downloads the latest stable version, so no manual version editing is needed. Your `save/`, `newgrf/`, and `data/config/` directories will be left intact since `mkdir -p` won't clobber existing folders.
+Just re-run the script. It queries the GitHub Releases API at runtime and always downloads the latest stable version, so no manual version editing is needed. Your `data/config/` directory will be left intact since `mkdir -p` won't clobber existing folders.
 
 ## Directory structure after install
 
 ```
 USB/
 └── openttd/
-    ├── openttd          # game binary
+    ├── openttd            # game binary
     ├── launch-OpenTTD.sh  # portable launcher
-    ├── save/            # savegames
-    ├── newgrf/          # NewGRF mods
     └── data/
-        └── config/      # openttd.cfg lives here
+        └── config/        # openttd.cfg, saves, and downloaded content live here
 ```
 
 ## Notes
 
-- NewGRFs downloaded in-game via the content downloader will land in the correct location automatically.
+- NewGRFs and other content downloaded in-game are stored in `data/config/content_download/` on the drive automatically. Manual GRF files can be placed in `data/config/newgrf/`.
 - The script targets `x86_64` (64-bit) Linux only.
 - If running on a machine with a significantly older glibc, the generic binary may fail to launch. In that case, install OpenTTD from that machine's package manager and copy your saves across manually.
 
