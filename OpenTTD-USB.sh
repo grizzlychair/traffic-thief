@@ -30,10 +30,13 @@ cd "$DRIVE/openttd"
 curl -LO "https://cdn.openttd.org/openttd-releases/$VERSION/openttd-$VERSION-linux-generic-amd64.tar.xz"
 tar -xf "openttd-$VERSION-linux-generic-amd64.tar.xz" --strip-components=1
 rm "openttd-$VERSION-linux-generic-amd64.tar.xz"
-mkdir -p save newgrf data/config
+mkdir -p "$DRIVE/openttd/data/config"
 printf "#!/bin/sh
 DIR=\$(cd \$(dirname \$0) && pwd)
+cd \$DIR
+unset XDG_DATA_HOME
+unset XDG_CONFIG_HOME
 \$DIR/openttd -c \$DIR/data/config/openttd.cfg
-" > launch-OpenTTD.sh
-chmod +x launch-OpenTTD.sh
+" > "$DRIVE/openttd/launch-OpenTTD.sh"
+chmod +x "$DRIVE/openttd/launch-OpenTTD.sh"
 echo "Done. OpenTTD $VERSION installed to $DRIVE/openttd"
