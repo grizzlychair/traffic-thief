@@ -7,7 +7,7 @@ A shell script for Arch-based Linux that installs a portable, self-contained [Op
 - Linux (tested on CachyOS / Arch-based)
 - Any POSIX-compatible shell (bash, zsh, fish, etc.)
 - `curl`, `tar`, and `jq` available on the host machine (the script will attempt to install `jq` via `pacman` if it's missing, Arch-based distros only)
-- Konsole (the script will open it automatically if not already running in a terminal; other terminal emulators will require running the script manually)
+- A supported terminal emulator for automatic launch when run outside a terminal: Konsole, GNOME Terminal, XFCE Terminal, MATE Terminal, LXTerminal, Alacritty, Kitty, or xterm. If none are found the script will exit with a message asking you to run it manually from a terminal.
 - USB drive mounted and accessible under `/run/media/<username>/` (the script detects your username automatically and prompts for the drive label)
 
 ## What the script does
@@ -36,7 +36,7 @@ Make sure your USB drive is mounted, then run the script:
 ./OpenTTD-USB.sh
 ```
 
-The script will open a Konsole window automatically if not already running in a terminal. It will prompt for your USB drive label (press Enter to accept the default `USB`), then proceed with the install.
+The script will detect and open a terminal window automatically if not already running in one. It will prompt for your USB drive label (press Enter to accept the default `USB`), then proceed with the install.
 
 ### Launching the game
 
